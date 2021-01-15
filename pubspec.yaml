@@ -3,6 +3,8 @@ description: This package helps in creation of forms in Flutter by removing the 
 version: 4.2.0
 homepage: https://github.com/danvick/flutter_form_builder
 
+publish_to: none
+
 environment:
   sdk: ">=2.10.0 <3.0.0"
   flutter: ">=1.22.0"
@@ -18,13 +20,19 @@ dependencies:
   dropdown_search: ^0.4.8
   flutter_colorpicker: ^0.3.4
   flutter_chips_input: ^1.9.5
-  flutter_datetime_picker: ^1.4.0
-  flutter_touch_spin: ^1.0.1
+  #  flutter_datetime_picker: ^1.4.0
+  flutter_datetime_picker:
+    git:
+      url: https://github.com/espresso3389/flutter_datetime_picker
+  flutter_touch_spin: any
   flutter_typeahead: ^1.9.1
-  intl: ^0.16.1
+  intl: any
   rating_bar: ^0.2.0
   signature: ^3.2.0
   validators: ^2.0.1
+
+dependency_overrides:
+  intl: ^0.17.0-nullsafety.2 # TODO: Remove this. Added to be able to include flutter_form_builder
 
 dev_dependencies:
   flutter_test:

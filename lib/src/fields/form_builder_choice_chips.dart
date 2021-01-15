@@ -320,7 +320,6 @@ class FormBuilderChoiceChip<T> extends FormBuilderField<T> {
                         backgroundColor: backgroundColor,
                         shadowColor: shadowColor,
                         selectedShadowColor: selectedShadowColor,
-                        shape: shape,
                         elevation: elevation,
                         pressElevation: pressElevation,
                         materialTapTargetSize: materialTapTargetSize,
@@ -335,9 +334,7 @@ class FormBuilderChoiceChip<T> extends FormBuilderField<T> {
             });
 
   @override
-  _FormBuilderChoiceChipState<T> createState() =>
-      _FormBuilderChoiceChipState<T>();
+  _FormBuilderChoiceChipState<T> createState() => _FormBuilderChoiceChipState<T>();
 }
 
-class _FormBuilderChoiceChipState<T>
-    extends FormBuilderFieldState<FormBuilderChoiceChip<T>, T> {}
+class _FormBuilderChoiceChipState<T> extends FormBuilderFieldState<FormBuilderChoiceChip<T>, T> {}

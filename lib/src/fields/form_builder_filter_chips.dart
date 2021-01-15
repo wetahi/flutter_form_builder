@@ -74,8 +74,7 @@ class FormBuilderFilterChip<T> extends FormBuilderField<List<T>> {
     this.labelPadding,
     this.maxChips,
     // this.visualDensity,
-  })  : assert((maxChips == null || initialValue == null) ||
-            (initialValue.length <= maxChips)),
+  })  : assert((maxChips == null || initialValue == null) || (initialValue.length <= maxChips)),
         super(
           key: key,
           initialValue: initialValue,
@@ -108,9 +107,7 @@ class FormBuilderFilterChip<T> extends FormBuilderField<List<T>> {
                       label: option,
                       selected: field.value.contains(option.value),
                       onSelected: state.enabled &&
-                              (null == maxChips ||
-                                  field.value.length < maxChips ||
-                                  field.value.contains(option.value))
+                              (null == maxChips || field.value.length < maxChips || field.value.contains(option.value))
                           ? (selected) {
                               final currentValue = [...field.value];
                               if (selected) {
@@ -127,7 +124,6 @@ class FormBuilderFilterChip<T> extends FormBuilderField<List<T>> {
                       backgroundColor: backgroundColor,
                       shadowColor: shadowColor,
                       selectedShadowColor: selectedShadowColor,
-                      shape: shape,
                       elevation: elevation,
                       pressElevation: pressElevation,
                       materialTapTargetSize: materialTapTargetSize,
@@ -146,9 +142,7 @@ class FormBuilderFilterChip<T> extends FormBuilderField<List<T>> {
         );
 
   @override
-  _FormBuilderFilterChipState<T> createState() =>
-      _FormBuilderFilterChipState<T>();
+  _FormBuilderFilterChipState<T> createState() => _FormBuilderFilterChipState<T>();
 }
 
-class _FormBuilderFilterChipState<T>
-    extends FormBuilderFieldState<FormBuilderFilterChip<T>, List<T>> {}
+class _FormBuilderFilterChipState<T> extends FormBuilderFieldState<FormBuilderFilterChip<T>, List<T>> {}

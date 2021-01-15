@@ -241,8 +241,7 @@ class FormBuilderDateTimePicker extends FormBuilderField<DateTime> {
               format: state._dateFormat,
               validator: validator,
               onShowPicker: state.onShowPicker,
-              autovalidate: autovalidateMode != AutovalidateMode.disabled &&
-                  autovalidateMode != null,
+              autovalidate: autovalidateMode != AutovalidateMode.disabled && autovalidateMode != null,
               resetIcon: resetIcon,
               textDirection: textDirection,
               textAlign: textAlign,
@@ -283,12 +282,10 @@ class FormBuilderDateTimePicker extends FormBuilderField<DateTime> {
   final StrutStyle strutStyle;
 
   @override
-  _FormBuilderDateTimePickerState createState() =>
-      _FormBuilderDateTimePickerState();
+  _FormBuilderDateTimePickerState createState() => _FormBuilderDateTimePickerState();
 }
 
-class _FormBuilderDateTimePickerState
-    extends FormBuilderFieldState<FormBuilderDateTimePicker, DateTime> {
+class _FormBuilderDateTimePickerState extends FormBuilderFieldState<FormBuilderDateTimePicker, DateTime> {
   TextEditingController _textFieldController;
 
   DateFormat _dateFormat;
@@ -299,8 +296,7 @@ class _FormBuilderDateTimePickerState
     _textFieldController = widget.controller ?? TextEditingController();
     _dateFormat = widget.format ?? _getDefaultDateTimeFormat();
     final initVal = initialValue;
-    _textFieldController.text =
-        initVal == null ? '' : _dateFormat.format(initVal);
+    _textFieldController.text = initVal == null ? '' : _dateFormat.format(initVal);
   }
 
   @override
@@ -333,16 +329,14 @@ class _FormBuilderDateTimePickerState
   }
 
   LocaleType _localeType() {
-    final shortLocaleCode = widget.locale?.languageCode ??
-        Intl.shortLocale(Intl.getCurrentLocale());
+    final shortLocaleCode = widget.locale?.languageCode ?? Intl.shortLocale(Intl.getCurrentLocale());
     return LocaleType.values.firstWhere(
       (_) => shortLocaleCode == describeEnum(_),
       orElse: () => LocaleType.en,
     );
   }
 
-  Future<DateTime> onShowPicker(
-      BuildContext context, DateTime currentValue) async {
+  Future<DateTime> onShowPicker(BuildContext context, DateTime currentValue) async {
     currentValue = value;
     DateTime newValue;
     switch (widget.inputType) {
@@ -369,8 +363,7 @@ class _FormBuilderDateTimePickerState
     return finalValue;
   }
 
-  Future<DateTime> _showDatePicker(
-      BuildContext context, DateTime currentValue) {
+  Future<DateTime> _showDatePicker(BuildContext context, DateTime currentValue) {
     if (widget.datePicker != null) {
       return widget.datePicker(context);
     } else {
@@ -390,8 +383,7 @@ class _FormBuilderDateTimePickerState
       return showDatePicker(
         context: context,
         selectableDayPredicate: widget.selectableDayPredicate,
-        initialDatePickerMode:
-            widget.initialDatePickerMode ?? DatePickerMode.day,
+        initialDatePickerMode: widget.initialDatePickerMode ?? DatePickerMode.day,
         initialDate: currentValue ?? widget.initialDate ?? DateTime.now(),
         firstDate: widget.firstDate ?? DateTime(1900),
         lastDate: widget.lastDate ?? DateTime(2100),
@@ -401,8 +393,7 @@ class _FormBuilderDateTimePickerState
         builder: widget.transitionBuilder ??
             (BuildContext context, Widget child) {
               return MediaQuery(
-                data: MediaQuery.of(context).copyWith(
-                    alwaysUse24HourFormat: widget.alwaysUse24HourFormat),
+                data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: widget.alwaysUse24HourFormat),
                 child: child,
               );
             },
@@ -420,8 +411,7 @@ class _FormBuilderDateTimePickerState
     }
   }
 
-  Future<TimeOfDay> _showTimePicker(
-      BuildContext context, DateTime currentValue) async {
+  Future<TimeOfDay> _showTimePicker(BuildContext context, DateTime currentValue) async {
     if (widget.timePicker != null) {
       return widget.timePicker(context);
     } else {
@@ -465,8 +455,7 @@ class _FormBuilderDateTimePickerState
         confirmText: widget.confirmText,
         cancelText: widget.cancelText,
       );
-      return timePickerResult ??
-          (currentValue != null ? TimeOfDay.fromDateTime(currentValue) : null);
+      return timePickerResult ?? (currentValue != null ? TimeOfDay.fromDateTime(currentValue) : null);
     }
   }
 
