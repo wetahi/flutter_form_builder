@@ -1,5 +1,6 @@
 library flutter_form_builder;
 
+export 'package:flutter_chips_input/src/chips_input.dart';
 export 'package:flutter_typeahead/flutter_typeahead.dart';
 export 'package:signature/signature.dart';
 export 'package:dropdown_search/dropdown_search.dart' hide ErrorBuilder;
